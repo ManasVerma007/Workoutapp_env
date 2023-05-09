@@ -11,7 +11,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = 'secret-key-goes-here'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
     # postgres://workoutappdb_user:UJCJnTE57ph4ETMf4cYKUovPHqMr6iij@dpg-chd69lbhp8u0162j8p10-a.oregon-postgres.render.com/workoutappdb
 
     db.init_app(app)
